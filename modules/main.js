@@ -16,10 +16,10 @@ for(var name in Game.creeps) {
             Game.spawns.Spawn1.transferEnergy(creep);
         }
         else {
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-            if(targets.length) {
-                creep.moveTo(targets[0]);
-                creep.build(targets[0]);
+            var buildtargets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            if(buidtargets.length) {
+                creep.moveTo(buildtargets[0]);
+                creep.build(buildtargets[0]);
             }else {
                 repairer(creep);
             }
@@ -27,10 +27,10 @@ for(var name in Game.creeps) {
     }
 
     if(creep.memory.role == 'guard') {
-        var targets = creep.room.find(FIND_HOSTILE_CREEPS);
-        if(targets.length) {
-            creep.moveTo(targets[0]);
-            creep.attack(targets[0]);
+        var attacktargets = creep.room.find(FIND_HOSTILE_CREEPS);
+        if(attacktargets.length) {
+            creep.moveTo(attacktargets[0]);
+            creep.attack(attacktargets[0]);
         }
     }
 
