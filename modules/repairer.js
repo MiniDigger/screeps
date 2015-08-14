@@ -8,15 +8,9 @@
 module.exports = function (creep) {
     if(creep.energy === 0) {
         var spawn = creep.pos.findClosest(FIND_MY_SPAWNS);
-        var moveResult = creep.moveTo(spawn);
-        /*
-         check moveResult here
-         */
+        creep.moveTo(spawn);
         if( spawn.energy > 199) {
-            var transferResult = spawn.transferEnergy(creep);
-            /*
-             check transferResult here
-             */
+            spawn.transferEnergy(creep);
         }
     }
     else{
@@ -34,7 +28,7 @@ module.exports = function (creep) {
             // perhaps check the results again?
 
         } else {
-            // nothign to repair, goto spawn
+            // nothing to repair, go to spawn
             creep.moveTo(creep.pos.findClosest(FIND_MY_SPAWNS));
         }
     }
